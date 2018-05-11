@@ -19,7 +19,7 @@ int get_directionkey()
 
 void show_puzzle(int puzzle[][3])
 {
-	int r, c; //Çà·Ä ¼±¾ð
+	int r, c; //í–‰ë ¬ ì„ ì–¸
 	system("cls");
 	for (r = 0; r < 3; r++)
 	{
@@ -34,7 +34,7 @@ void show_puzzle(int puzzle[][3])
 				printf("   ");
 			}
 		}
-		printf("\n");//Çà·Ä 3X3 ¸¸µé°í °³ÇàÀ¸·Î ¶ç¾îÁÜ
+		printf("\n");//í–‰ë ¬ 3X3 ë§Œë“¤ê³  ê°œí–‰ìœ¼ë¡œ ë„ì–´ì¤Œ
 		}
 	}
 int end(int puzzle[][3])
@@ -45,9 +45,9 @@ int end(int puzzle[][3])
 	{
 		for (c = 0; c < 3; c++)
 		{
-			if (puzzle[r][c] != r + c)
+			if (puzzle[r][c] != 3 * r + c + 1)
 			{
-				return r && c;
+				return (r == 2) && (c == 2);
 			}
 		}
 	}
@@ -55,14 +55,14 @@ int end(int puzzle[][3])
 int main(void)
 {
 	int puzzle[3][3] = {{1,5,7},{3,8,6},{2,4,0}};
-	int row = 2; //Çà
-	int col = 2;//¿­
-	int key = 0; //Å°º¸µå
+	int row = 2; //í–‰
+	int col = 2;//ì—´
+	int key = 0; //í‚¤ë³´ë“œ
 
 	while (!end(puzzle))
 	{
 		show_puzzle(puzzle);
-		printf("¹æÇâÅ°·Î ÄÁÆ®·Ñ \n");
+		printf("ë°©í–¥í‚¤ë¡œ ì»¨íŠ¸ë¡¤ \n");
 		key = get_directionkey();
 
 		switch (key)
